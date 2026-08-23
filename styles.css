@@ -1,0 +1,127 @@
+
+/* =========================
+   Dunder Mifflin - styles.css
+   ========================= */
+
+/* ===== Global Styles ===== */
+/* CSS Reset & Box Sizing */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.6;
+  color: #1b2a41;
+  background: #f7fafc;
+}
+
+/* Text Styles */
+h1, h2, h3 { line-height: 1.25; margin-bottom: .5rem; color: #1c3d5a; }
+p { margin-bottom: 1rem; }
+ul { margin-left: 1.2rem; margin-bottom: 1rem; }
+a { color: #1c5d99; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ===== Header ===== */
+header.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e6eef5;
+  position: sticky; top: 0; z-index: 20;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 0; }
+.header-brand { display: flex; align-items: center; gap: .75rem; }
+.header-brand img { height: 48px; width: auto; }
+.header-title { font-weight: 800; font-size: 1.125rem; color: #1c3d5a; }
+
+/* ===== Navigation ===== */
+nav.main-nav ul { list-style: none; display: flex; gap: .5rem; flex-wrap: wrap; }
+nav.main-nav a {
+  display: inline-block; padding: .5rem .75rem; border-radius: .75rem;
+  font-weight: 600; background: #eef5fb; border: 1px solid #d8e6f5;
+}
+nav.main-nav a[aria-current="page"] { background: #dbeaf8; border-color: #c5dbf2; }
+
+/* ===== Main ===== */
+main { padding: 2rem 0; }
+.hero {
+  background: linear-gradient(120deg, #e7f1fb, #f3f8ff);
+  border: 1px solid #e0ecfb;
+  padding: 2rem; border-radius: 1.25rem;
+  display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.5rem;
+  align-items: center;
+}
+.hero img { width: 100%; height: auto; border-radius: 1rem; border: 1px solid #d5e6fb; }
+.cta { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .75rem; }
+.btn {
+  display: inline-block; padding: .65rem 1rem; border-radius: .75rem; font-weight: 700;
+  border: 1px solid #1c5d99; color: white; background: #1c5d99;
+}
+.btn.alt { background: #ffffff; color: #1c5d99; }
+
+/* Two+ Column Utility (for homepage and about) */
+.columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+.card {
+  background: #ffffff; border: 1px solid #e6eef5; border-radius: 1rem; padding: 1rem;
+  box-shadow: 0 1px 0 rgba(20, 40, 60, .03);
+}
+
+/* ===== About Page: Floated images for text wrap ===== */
+.float-left {
+  float: left; margin: .25rem 1rem .75rem 0; border-radius: .75rem; border: 1px solid #dbe6f5; max-width: 42%;
+}
+.float-right {
+  float: right; margin: .25rem 0 .75rem 1rem; border-radius: .75rem; border: 1px solid #dbe6f5; max-width: 42%;
+}
+
+/* Clearfix utility for floated sections */
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ===== Gallery ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.gallery-grid figure {
+  background: #ffffff; border: 1px solid #e6eef5; border-radius: .75rem; padding: .5rem;
+}
+.gallery-grid img { width: 100%; height: auto; border-radius: .5rem; display: block; }
+.gallery-grid figcaption { font-size: .9rem; padding: .5rem; color: #345; }
+
+/* ===== Contact Page ===== */
+form.contact-form {
+  display: grid; gap: .75rem; max-width: 680px;
+}
+input, textarea {
+  width: 100%; padding: .65rem .75rem; border-radius: .5rem; border: 1px solid #cfe0f3; background: #fff;
+}
+label { font-weight: 600; color: #284b63; }
+.map-embed { width: 100%; height: 360px; border: 0; border-radius: .75rem; }
+
+/* ===== Footer ===== */
+footer.site-footer {
+  background: #0f2742; color: #e6f0fb; margin-top: 2rem; padding: 2rem 0;
+}
+.footer-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start;
+}
+.footer-col h3 { font-size: 1.05rem; margin-bottom: .5rem; color: #eaf2fb; }
+.footer-col a { color: #d5e8ff; }
+.footer-logo img { height: 38px; width: auto; display: inline-block; }
+
+/* ===== Media Queries ===== */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .columns, .columns-3 { grid-template-columns: 1fr; }
+  .float-left, .float-right { float: none; max-width: 100%; margin: .25rem 0 .75rem 0; }
+  .footer-grid { grid-template-columns: 1fr; }
+  nav.main-nav ul { justify-content: center; }
+  .header-title { display: none; } /* keep header compact on small screens */
+}
